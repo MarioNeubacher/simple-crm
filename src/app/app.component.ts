@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
-import * as $ from "jquery";
+import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   dataset: any;
   name: any;
   value: any;
 
   constructor() { }
 
-  ///////////////////////////////////////////
-  // The click
-  toggle() {
+  ngOnInit(): void {
+    this.codePen()  //important
+  }
+
+  codePen() {
+    ///////////////////////////////////////////
+    // The click
     $(".burger").addClass("unToggled");
     $(".burger").click(function () {
       $(this).toggleClass("toggled");
@@ -29,7 +33,7 @@ export class AppComponent {
     const inputs = document.querySelectorAll("input");
     const div = document.querySelector(".burger");
 
-    this.handleInputChange() {
+    const handleInputChange = () => {
       const units = this.dataset.units || "";
 
       document.documentElement.style.setProperty(
@@ -38,10 +42,10 @@ export class AppComponent {
       );
     }
 
-    inputs.forEach((input) => input.addEventListener("input", this.handleInputChange));
+    inputs.forEach((input) => input.addEventListener("input", handleInputChange));
     var range = $("input#range"),
       value = $(".range-value");
-    value.html(range.attr("value"));
+    value.html(range.attr("value")!);
     range.on("input", function () {
       value.html(this.value);
     });
@@ -56,9 +60,5 @@ export class AppComponent {
         $(".burger").removeClass("showHitArea");
       }
     });
-
-  }
-  handleInputChange() {
-    throw new Error('Function not implemented.');
   }
 }
