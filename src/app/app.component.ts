@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   dataset: any;
   name: any;
   value: any;
+  title !: string;
 
   constructor() { }
 
@@ -42,13 +43,13 @@ export class AppComponent implements OnInit {
       );
     }
 
-    inputs.forEach((input) => input.addEventListener("input", handleInputChange));
+    inputs.forEach((input) => input.addEventListener("input", handleInputChange)); //.bind(this)
     var range = $("input#range"),
-      value = $(".range-value");
-    value.html(range.attr("value")!);
-    range.on("input", function () {
-      value.html(this.value);
-    });
+      valuex = $(".range-value");
+    valuex.html(range.attr("value")!);
+    range.on("input", () => {
+      valuex.html(this.value);
+    }); //.bind(this)
 
     /////////////////////////////////
     // Hit Area Toggle
