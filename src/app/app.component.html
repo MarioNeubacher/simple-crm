@@ -6,13 +6,13 @@
   <div class="example-sidenav-content">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <mat-icon class="menu-icon" (click)="drawer.toggle()">
+        <!-- <mat-icon class="menu-icon" (click)="drawer.toggle()"> -->
           <section>
-            <div class="burger burger2">
+            <div class="burger burger2" (click)="drawer.toggle()">
               <div></div>
             </div>
           </section>
-        </mat-icon>
+        <!-- </mat-icon> -->
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
