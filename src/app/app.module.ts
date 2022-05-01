@@ -29,6 +29,7 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StartComponent } from './start/start.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { StartComponent } from './start/start.component';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    StartComponent
+    StartComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
