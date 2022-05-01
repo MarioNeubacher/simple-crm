@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
+import { StartComponent } from './start/start.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'user', component: UserComponent},
-  { path: 'user/:id', component: UserDetailComponent}
+  { path: '', component: StartComponent},
+  { path: 'dashboard', component: DashboardComponent, outlet: "details"},
+  { path: 'user', component: UserComponent, outlet: "details"},
+  { path: 'user/:id', component: UserDetailComponent, outlet: "details"}
 ];
 
 @NgModule({
