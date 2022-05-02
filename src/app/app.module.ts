@@ -7,11 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './user/user.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { UserComponent } from './home/user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,13 +22,14 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserDetailComponent } from './home/user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
-import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DialogEditAddressComponent } from './home/dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from './home/dialog-edit-user/dialog-edit-user.component';
+import { DialogAddUserComponent } from './home/dialog-add-user/dialog-add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StartComponent } from './start/start.component';
-import { LayoutComponent } from './layout/layout.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { LayoutComponent } from './layout/layout.component';
     DialogEditAddressComponent,
     DialogEditUserComponent,
     StartComponent,
-    LayoutComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
