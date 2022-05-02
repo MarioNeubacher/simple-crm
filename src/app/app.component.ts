@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   value: any;
   title !: string;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngAfterViewInit(): void {
     this.codePen()  //important

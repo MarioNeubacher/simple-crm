@@ -28,8 +28,10 @@ import { DialogEditAddressComponent } from './home/dialog-edit-address/dialog-ed
 import { DialogEditUserComponent } from './home/dialog-edit-user/dialog-edit-user.component';
 import { DialogAddUserComponent } from './home/dialog-add-user/dialog-add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StartComponent } from './start/start.component';
 import { HomeComponent } from './home/home.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { HomeComponent } from './home/home.component';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
+    UserComponent,
     StartComponent,
     HomeComponent
   ],
@@ -63,7 +66,9 @@ import { HomeComponent } from './home/home.component';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
