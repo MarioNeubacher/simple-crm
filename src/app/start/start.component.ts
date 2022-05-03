@@ -11,7 +11,11 @@ import { FirebaseService } from '../services/firebase.service';
 export class StartComponent implements OnInit {
 
   hide = true;
-  signInForm = FormGroup;
+
+  signInForm = new FormGroup({
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'password': new FormControl('', Validators.required),
+  });
 
   constructor(
     public router: Router,
@@ -19,10 +23,7 @@ export class StartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.signInForm = new FormGroup({
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'password': new FormControl('', Validators.required),
-    });
+    
   }
 
   openApp() {
