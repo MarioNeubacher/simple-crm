@@ -2,6 +2,14 @@ form {
     padding: 15px 0px 0px 0px;
 }
 
+input::placeholder{
+    opacity: 0;
+}
+
+input:focus::placeholder{
+    opacity: 1;
+}
+
 .div-background {
     background-color: #3F51B5;
     height: 100vh;
@@ -80,4 +88,12 @@ mat-card-content {
     display: block;
     width: 80%;
     margin: 20px auto;
+
+    &:hover {
+        background-color: rgb(50, 50, 212);
+    }
 }
+
+/* .mat-form-field-appearance-legacy {
+    font-size: 17.5px;
+} */

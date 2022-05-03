@@ -32,6 +32,7 @@ import { HomeComponent } from './home/home.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StartComponent } from './start/start.component';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { StartComponent } from './start/start.component';
     MatTabsModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
