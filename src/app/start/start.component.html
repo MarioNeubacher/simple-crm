@@ -5,15 +5,15 @@
             <!-- [(selectedIndex)]="tabIndex.index" -->
             <mat-tab label="Sign In">
                 <mat-card-content>
-                    <form action="" [formGroup]="signInForm">
-                        <mat-form-field>
+                    <form [formGroup]="signInForm">
+                        <mat-form-field appearance="fill">
                             <input matInput placeholder="Email" formControlName="email" type="email" ngModel required
-                                name="email" #email > <!-- #email="ngModel" -->
-                                <mat-error *ngIf="email?.errors?.['required']"> Email is required</mat-error>
-                                <mat-error *ngIf="email?.errors?.['email']"> Please enter a correct email format</mat-error>
+                                name="email" #email> <!-- #email="ngModel" -->
+                            <mat-error *ngIf="email?.errors?.['required']"> Email is required</mat-error>
+                            <mat-error *ngIf="email?.errors?.['email']"> Please enter a correct email format</mat-error>
                             <mat-icon matSuffix>email</mat-icon>
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="fill">
                             <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #password
                                 required minlength="6" name="password" ngModel formControlName="password">
                             <!-- #password="ngModel" -->
@@ -31,13 +31,12 @@
                             </button>
                         </mat-form-field>
                         <mat-checkbox>Remember me</mat-checkbox>
-                        <button mat-raised-button color="primary" class="login-button"
-                            > <!-- (click)="onSignin(email.value, password.value)" -->
+                        <button mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn()">
+                            <!-- (click)="onSignin(email.value, password.value)" -->
                             <!-- (click)="onSignin(emailSignin.value, passwordSignin.value)" -->
                             Sign In
                         </button>
                         <p class="Loginerror"></p>
-
                     </form>
                 </mat-card-content>
             </mat-tab>
@@ -90,7 +89,7 @@
                                     'visibility'}}</mat-icon>
                             </button>
                         </mat-form-field>
-                        <a mat-raised-button color="primary" class="login-button">
+                        <a mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn()">
                             <!-- (click)="onSignup(usernameSignup.value, emailSignup.value, passwordSignup.value)" -->
                             Sign Up
                         </a>

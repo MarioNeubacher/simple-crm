@@ -8,21 +8,24 @@ import { FirebaseService } from '../services/firebase.service';
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss']
 })
-export class StartComponent {
-
-  signInForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-  });
+export class StartComponent implements OnInit {
 
   hide = true;
+  signInForm = FormGroup;
 
   constructor(
     public router: Router,
     public firebaseSerice: FirebaseService
   ) { }
 
-  /* openApp() {
+  ngOnInit(): void {
+    this.signInForm = new FormGroup({
+      'email': new FormControl('', [Validators.required, Validators.email]),
+      'password': new FormControl('', Validators.required),
+    });
+  }
+
+  openApp() {
     this.router.navigateByUrl('/home/dashboard');
   }
 
@@ -32,6 +35,10 @@ export class StartComponent {
 
   get password() {
     return this.signInForm.get('password');
-  } */
+  }
+
+  enableSubmitBtn() {
+    return this.signInForm.valid;
+  }
 
 }
