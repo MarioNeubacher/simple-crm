@@ -79,6 +79,10 @@ mat-checkbox {
     margin: auto;
 }
 
+mat-checkbox {
+    margin-top: 25px !important;
+}
+
 mat-card-content {
     margin-top: 20px;
 }
@@ -89,11 +93,11 @@ mat-card-content {
     width: 80%;
     margin: 20px auto;
 
-    &:hover {
+    /* &:hover {
         background-color: rgb(50, 50, 212);
-    }
+    } */
 }
 
-/* .mat-form-field-appearance-legacy {
-    font-size: 17.5px;
-} */
+.mat-form-field-appearance-legacy {
+    margin-top: 20px
+}
