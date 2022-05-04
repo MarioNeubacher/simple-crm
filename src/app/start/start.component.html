@@ -6,31 +6,28 @@
             <mat-tab label="Sign In">
                 <mat-card-content>
                     <form [formGroup]="signInForm">
-                        <mat-form-field appearance="fill">
-                            <input matInput placeholder="Email" formControlName="email" type="email" ngModel required
-                                name="email" #email> <!-- #email="ngModel" -->
-                            <mat-error *ngIf="email?.errors?.['required']"> Email is required</mat-error>
-                            <mat-error *ngIf="email?.errors?.['email']"> Please enter a correct email format</mat-error>
+                        <mat-form-field>
+                            <input matInput placeholder="Email" [formControl]="signInForm.email" type="email" ngModel required
+                                name="email" #email> <!-- [errorStateMatcher]="customErrorStateMatcher"  -->
+                            <mat-error *ngIf="signInForm.email?.errors?.['required']"> Email is required</mat-error>
+                            <mat-error *ngIf="signInForm.email?.errors?.['email']"> Please enter a correct email format</mat-error>
+                            <!-- <mat-error *ngIf="this.signInForm.controls.email.hasError('required')">Email is required</mat-error> -->
                             <mat-icon matSuffix>email</mat-icon>
                         </mat-form-field>
-                        <mat-form-field appearance="fill">
-                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #password
+
+                        <mat-form-field>
+                            <input matInput placeholder="Password" [type]="hide1 ? 'password' : 'text'" #password
                                 required minlength="6" name="password" ngModel formControlName="password">
-                            <!-- #password="ngModel" -->
-                            <mat-error>
-                                <!-- *ngIf="password.errors && password.errors?.['required']" -->
-                                Password is required
-                            </mat-error>
-                            <mat-error>
-                                <!-- *ngIf="password.errors && password.errors?.['minlength']" -->
-                                Password must be of length 6
-                            </mat-error>
-                            <button mat-icon-button matSuffix (click)="hide = !hide">
-                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide ? 'visibility_off' :
+                            <mat-error>Password is required</mat-error>
+                            <mat-error>Password must be of length 6</mat-error>
+                            <button mat-icon-button matSuffix (click)="hide1 = !hide1">
+                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide1 ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </button>
                         </mat-form-field>
+
                         <mat-checkbox>Remember me</mat-checkbox>
+
                         <button mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn()">
                             <!-- (click)="onSignin(email.value, password.value)" -->
                             <!-- (click)="onSignin(emailSignin.value, passwordSignin.value)" -->
@@ -40,12 +37,13 @@
                     </form>
                 </mat-card-content>
             </mat-tab>
+
             <mat-tab label="Sign Up">
                 <mat-card-content>
-                    <form action="" [formGroup]="signInForm">
+                    <form action="" > <!-- [formGroup]="signUpForm" -->
                         <mat-form-field>
                             <input type="text" #usernameSignup matInput placeholder="User Name" required name="username"
-                                minlength="6" ngModel formControlName="email"> <!-- #username="ngModel"  -->
+                                minlength="6" ngModel formControlName="name"> <!-- #username="ngModel"  -->
                             <mat-icon matSuffix>perm_identity</mat-icon>
                             <mat-error>
                                 <!-- *ngIf="username.invalid" -->
@@ -60,7 +58,7 @@
                             <mat-icon matSuffix>email</mat-icon>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #passwordSignup
+                            <input matInput placeholder="Password" [type]="hide2 ? 'password' : 'text'" #passwordSignup
                                 required minlength="6" name="password" ngModel formControlName="email">
                             <!--  #password="ngModel" -->
                             <mat-error>
@@ -71,21 +69,21 @@
                                 <!-- *ngIf="password.errors && password.errors?.['minlength']" -->
                                 Password must be of length 6
                             </mat-error>
-                            <button mat-icon-button matSuffix (click)="hide = !hide">
-                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide ? 'visibility_off' :
+                            <button mat-icon-button matSuffix (click)="hide2 = !hide2">
+                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide2 ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </button>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required
+                            <input matInput placeholder="Password" [type]="hide3 ? 'password' : 'text'" required
                                 minlength="6" name="repassword" ngModel formControlName="email">
                             <!-- #repassword="ngModel" -->
                             <mat-error>
                                 <!-- *ngIf="repassword.errors && repassword.errors?.['required']" -->
                                 Re-Enter Password is required
                             </mat-error>
-                            <button mat-icon-button matSuffix (click)="hide = !hide">
-                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide ? 'visibility_off' :
+                            <button mat-icon-button matSuffix (click)="hide3 = !hide3">
+                                <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide3 ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </button>
                         </mat-form-field>
