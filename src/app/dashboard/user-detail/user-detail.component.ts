@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { DialogEditAddressComponent } from 'app/home/dialog-edit-address/dialog-edit-address.component';
-import { DialogEditUserComponent } from 'app/home/dialog-edit-user/dialog-edit-user.component';
+import { DialogEditAddressComponent } from 'app/dashboard/dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from 'app/dashboard/dialog-edit-user/dialog-edit-user.component';
 import { User } from 'models/user.class';
 
 @Component({

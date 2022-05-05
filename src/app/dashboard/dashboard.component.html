@@ -1,0 +1,96 @@
+<!-- <mat-drawer-container class="mat-drawer-container" autosize>
+    <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
+      <div class="div-logo">
+        <img class="img-logo" src="assets/img/crm.png">
+      </div>
+      <ul class="menu-items">
+        <li routerLink="/home/dashboard">
+          <mat-icon>fact_check</mat-icon>Dashboard
+        </li>
+        <li routerLink="/home/user">
+          <mat-icon>perm_identity</mat-icon>User
+        </li>
+      </ul>
+  
+      <div style="position: fixed; bottom: 0; padding: 10px">
+        <a  target="_blank" href="https://icons8.com/icon/9nRuLVad2Yr2/crm">crm</a> icon by <a target="_blank"
+        href="https://icons8.com">Icons8</a>
+      </div>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <mat-toolbar color="primary">
+        <mat-toolbar-row style="display:flex;justify-content:space-between">
+          <div style="display:flex; align-items: center;">
+            <section>
+              <div class="burger burger2" (click)="drawer.toggle()">
+                <div></div>
+              </div>
+            </section>
+            <span>Simple CRM</span>
+          </div>
+          <button class="btn-logout" routerLink="/" (click)="logout()">
+            <img style="height: 25px; width: auto" src="assets/img/logout.png" alt="">
+            Logout
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+  
+      <div class="div-router">
+        <router-outlet></router-outlet>
+      </div>
+  
+    </div>
+  </mat-drawer-container> -->
+
+  <!-- Top navigation -->
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
+    </a>
+  </nav>
+  <!-- Sidebar navigation -->
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active">
+                <i class="fas fa-user"></i>User Profile
+              </a>
+            </li>
+            <!-- Calling SignOut() Api from AuthService -->
+            <li class="nav-item">
+              <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Log out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">User Profile</h1>
+          </div>
+          <!-- Show user data when logged in -->
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                  alt="{{user.displayName}}">
+                <div class="media-body">
+                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                  <p>User ID: <strong>{{user.uid}}</strong></p>
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

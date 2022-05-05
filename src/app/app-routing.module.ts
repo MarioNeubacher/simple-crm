@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './home/dashboard/dashboard.component';
-import { StartComponent } from './start/start.component';
-import { UserDetailComponent } from './home/user-detail/user-detail.component';
-import { UserComponent } from './home/user/user.component';
-import { HomeComponent } from './home/home.component';
-import { ForgotPasswordComponent } from './start/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './start/verify-email/verify-email.component';
+import { UserDetailComponent } from './dashboard/user-detail/user-detail.component';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { AuthGuard } from './authentication/services/auth.guard';
+import { HomeComponent } from './dashboard/dashboard.component';
+import { UserComponent } from './dashboard/user/user.component';
+import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
+import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 
 const routes: Routes = [
-  { path: '', component: StartComponent}, 
+  { path: '', component: SignInComponent},
+  { path: 'register-user', component: SignUpComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'home', component: HomeComponent},
-  { path: 'home/dashboard', component: DashboardComponent},
-  { path: 'home/user', component: UserComponent},
-  { path: 'home/user/:id', component: UserDetailComponent}
+  { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard/home', component: HomeComponent},
+  { path: 'dashboard/user', component: UserComponent},
+  { path: 'dashboard/user/:id', component: UserDetailComponent}
 ];
 
 @NgModule({

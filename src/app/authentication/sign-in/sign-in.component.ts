@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../services/firebase.service';
+import { FirebaseService } from 'app/services/firebase.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss']
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class StartComponent {
+export class SignInComponent {
 
   hide1 = true;
   hide2 = true;
@@ -28,7 +29,8 @@ export class StartComponent {
 
   constructor(
     public router: Router,
-    public firebaseSerice: FirebaseService
+    public firebaseSerice: FirebaseService,
+    public authService: AuthService
   ) {   }
 
   enableSubmitBtn1() {

@@ -7,8 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { DashboardComponent } from './home/dashboard/dashboard.component';
-import { UserComponent } from './home/user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -22,34 +20,36 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
-import { UserDetailComponent } from './home/user-detail/user-detail.component';
+import { UserDetailComponent } from './dashboard/user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { DialogEditAddressComponent } from './home/dialog-edit-address/dialog-edit-address.component';
-import { DialogEditUserComponent } from './home/dialog-edit-user/dialog-edit-user.component';
-import { DialogAddUserComponent } from './home/dialog-add-user/dialog-add-user.component';
+import { DialogEditAddressComponent } from './dashboard/dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from './dashboard/dialog-edit-user/dialog-edit-user.component';
+import { DialogAddUserComponent } from './dashboard/dialog-add-user/dialog-add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
-import { StartComponent } from './start/start.component';
 import { FirebaseService } from './services/firebase.service';
-import { VerifyEmailComponent } from './start/verify-email/verify-email.component';
-import { ForgotPasswordComponent } from './start/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { AuthService } from './authentication/services/auth.service';
+import { RouterModule } from '@angular/router';
+import { UserComponent } from './dashboard/user/user.component';
+import { HomeComponent } from './dashboard/home/home.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
     UserComponent,
-    StartComponent,
-    HomeComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    SignUpComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +73,10 @@ import { ForgotPasswordComponent } from './start/forgot-password/forgot-password
     MatMenuModule,
     ReactiveFormsModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    RouterModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-verify-email',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verify-email.component.scss']
 })
 export class VerifyEmailComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    public authService: AuthService
+  ) { }
+  ngOnInit() {
   }
-
 }
