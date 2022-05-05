@@ -53,10 +53,11 @@
                         </mat-form-field>
 
                         <mat-form-field>
-                            <input matInput placeholder="Password" [type]="hide2 ? 'password' : 'text'" #passwordSignup
-                                required minlength="6" name="password" ngModel [formControl]="signUpForm['controls']['password1']" >
+                            <input matInput placeholder="Password" [type]="hide2 ? 'password' : 'text'" #passwordSignup 
+                                required minlength="6" name="password" ngModel [formControl]="signUpForm['controls']['password1']" formControlName="password1" (change)="onPasswordChange()">
                             <mat-error *ngIf="signUpForm['controls']['password1'].errors?.['required']">Password is required</mat-error>
-                            <mat-error *ngIf="signUpForm['controls']['password1'].errors?.['minlength']">Password must be of length 6</mat-error>    
+                            <mat-error *ngIf="signUpForm['controls']['password1'].errors?.['minlength']">Password must be of length 6</mat-error>   
+                            <mat-error *ngIf="password2.hasError('mismatch')"></mat-error>   
                             <button mat-icon-button matSuffix (click)="hide2 = !hide2">
                                 <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
@@ -64,13 +65,15 @@
 
                         <mat-form-field>
                             <input matInput placeholder="Password" [type]="hide3 ? 'password' : 'text'" required
-                                minlength="6" name="repassword" ngModel [formControl]="signUpForm['controls']['password2']" >
+                                minlength="6" name="repassword" ngModel [formControl]="signUpForm['controls']['password2']" formControlName="password2" (change)="onPasswordChange()">
                             <mat-error *ngIf="signUpForm['controls']['password2'].errors?.['required']">Password is required</mat-error>
                             <mat-error *ngIf="signUpForm['controls']['password2'].errors?.['minlength']">Password must be of length 6</mat-error>    
                             <button mat-icon-button matSuffix (click)="hide3 = !hide3">
                                 <mat-icon style="font-size: 17.5px; margin-bottom: 5px;">{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                         </mat-form-field>
+
+                        <div class="txt-passwordsNotMatching" *ngIf="password2.hasError('mismatch')">Passwords do not match</div>
 
                         <button mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn2()">Sign Up</button>
                     </form>
