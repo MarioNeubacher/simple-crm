@@ -31,18 +31,6 @@ export class StartComponent {
     public firebaseSerice: FirebaseService
   ) {   }
 
-  openApp() {
-    this.router.navigateByUrl('/home/dashboard');
-  }
-
-  get email() {
-    return this.signInForm.get('email');
-  }
-
-  get password() {
-    return this.signInForm.get('password');
-  }
-
   enableSubmitBtn1() {
     return this.signInForm.valid;
   }
@@ -51,6 +39,7 @@ export class StartComponent {
     return this.signUpForm.valid;
   }
 
+  //for openPasswordChange()
   get password1(): AbstractControl {
     return this.signUpForm.controls['password1'];
   }
@@ -62,8 +51,10 @@ export class StartComponent {
   onPasswordChange() {
     if (this.password2.value == this.password1.value) {
       this.password2.setErrors(null);
+      this.password1.setErrors(null);
     } else {
       this.password2.setErrors({ mismatch: true });
+      this.password1.setErrors({ mismatch: true });
     }
   }
 

@@ -79,10 +79,6 @@ mat-checkbox {
     margin: auto;
 }
 
-mat-checkbox {
-    margin-top: 25px !important;
-}
-
 mat-card-content {
     margin-top: 20px;
 }
@@ -106,4 +102,12 @@ mat-card-content {
     color: red;
     padding-left: 30px;
     font-size: 12.5px;
+}
+
+.div-rememberUserAndForgotPassword {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 0px 40px; 
+    align-items: center; 
+    margin-top: 10px !important;
 }

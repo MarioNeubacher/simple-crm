@@ -20,16 +20,19 @@
   
     <div class="example-sidenav-content">
       <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <!-- <mat-icon class="menu-icon" (click)="drawer.toggle()"> -->
-          <section>
-            <div class="burger burger2" (click)="drawer.toggle()">
-              <div></div>
-            </div>
-          </section>
-          <!-- </mat-icon> -->
-          <span>Simple CRM</span>
-          <button (click)="logout()">Logout</button>
+        <mat-toolbar-row style="display:flex;justify-content:space-between">
+          <div style="display:flex; align-items: center;">
+            <section>
+              <div class="burger burger2" (click)="drawer.toggle()">
+                <div></div>
+              </div>
+            </section>
+            <span>Simple CRM</span>
+          </div>
+          <button class="btn-logout" routerLink="/" (click)="logout()">
+            <img style="height: 25px; width: auto" src="assets/img/logout.png" alt="">
+            Logout
+          </button>
         </mat-toolbar-row>
       </mat-toolbar>
   

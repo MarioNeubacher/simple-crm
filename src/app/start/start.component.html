@@ -27,7 +27,10 @@
                             </button>
                         </mat-form-field>
 
-                        <mat-checkbox>Remember me</mat-checkbox>
+                        <div class="div-rememberUserAndForgotPassword">
+                            <mat-checkbox>Remember me</mat-checkbox>
+                            <a style="width: 205px; text-decoration: none" routerLink="forgot-password">Forgot your password?</a>
+                        </div>
 
                         <button mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn1()">Sign In</button>
                     </form>
@@ -73,13 +76,13 @@
                             </button>
                         </mat-form-field>
 
-                        <div class="txt-passwordsNotMatching" *ngIf="password2.hasError('mismatch')">Passwords do not match</div>
+                        <div class="txt-passwordsNotMatching" *ngIf="password2.hasError('mismatch') && password1.hasError('mismatch')">Passwords do not match</div>
 
                         <button mat-raised-button color="primary" class="login-button" [disabled]="!enableSubmitBtn2()">Sign Up</button>
                     </form>
                 </mat-card-content>
             </mat-tab>
-
         </mat-tab-group>
+        <a style="text-decoration: none" routerLink="home/dashboard">As guest</a>
     </div>
 </div>

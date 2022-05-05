@@ -1,4 +1,4 @@
-<app-start *ngIf="router.url == '/'"></app-start>
+<app-start *ngIf="router.url == '/' || '/forgot-password' || '/verify-email'"></app-start>
 <div *ngIf="router.url !== '/'">
     <app-home></app-home>
     <router-outlet></router-outlet>

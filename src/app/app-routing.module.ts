@@ -5,9 +5,13 @@ import { StartComponent } from './start/start.component';
 import { UserDetailComponent } from './home/user-detail/user-detail.component';
 import { UserComponent } from './home/user/user.component';
 import { HomeComponent } from './home/home.component';
+import { ForgotPasswordComponent } from './start/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './start/verify-email/verify-email.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent}, 
+  { path: 'forgot-password', component: ForgotPasswordComponent},
+  { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'home', component: HomeComponent},
   { path: 'home/dashboard', component: DashboardComponent},
   { path: 'home/user', component: UserComponent},

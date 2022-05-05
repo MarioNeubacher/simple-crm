@@ -33,6 +33,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StartComponent } from './start/start.component';
 import { FirebaseService } from './services/firebase.service';
+import { VerifyEmailComponent } from './start/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './start/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { FirebaseService } from './services/firebase.service';
     DialogEditUserComponent,
     UserComponent,
     StartComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
